@@ -19,23 +19,23 @@ class MyPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers: '',
+            user: '',
             completed: 0
         }
     }
 
     stateRefresh = () => {
-        this.setState({customers: '', completed: 0});
+        this.setState({user: '', completed: 0});
         this
             .callApi()
-            .then(res => this.setState({customers: res}))
+            .then(res => this.setState({user: res}))
             .catch(err => console.log(err));
     }
 
     componentDidMount() {
         this
             .callApi()
-            .then(res => this.setState({customers: res}))
+            .then(res => this.setState({user: res}))
             .catch(err => console.log(err));
     }
 
@@ -43,7 +43,7 @@ class MyPage extends Component {
         const response = await fetch('/api/mypage');
         const body = await response.json();
 
-        localStorage.setItem("user", JSON.stringify(body[0]));
+        // localStorage.setItem("user", JSON.stringify(body[0]));
 
         return body;
     }
@@ -53,10 +53,10 @@ class MyPage extends Component {
     return(
         <MyPage_Contents>
             {
-                this.state.customers
+                this.state.user
                 ? this
                     .state
-                    .customers
+                    .user
                     .map(c => {
                         return (
                             <ContentsBlock/>

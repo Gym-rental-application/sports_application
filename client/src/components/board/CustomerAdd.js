@@ -242,7 +242,7 @@ for (var i = 4; i < Object.keys(params).length; i++) {
         axios
             .post('/api/classopen', {
                 classkind: board.classkind,
-                nickName: JSON.parse(localStorage.getItem("user")).id,
+                // nickName: JSON.parse(localStorage.getItem("user")).id,
                 boardTitle: board.boardTitle,
                 boardpay: board.boardpay,
                 boardType: "123",
